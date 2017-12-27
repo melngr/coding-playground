@@ -7,13 +7,12 @@ if ( __name__ == "__main__" ):
     birth_day = input("Enter the number of the day you were born => ")
     birth_year = input("Enter the number of the year you were born => ")
 
-    assert( birth_month.isdigit() )
-    assert( birth_day.isdigit() )
-    assert( birth_year.isdigit() )
-
-    b_month = int( birth_month )
-    b_day = int( birth_day )
-    b_year = int( birth_year )
+    try:
+        b_month = int( birth_month )
+        b_day = int( birth_day )
+        b_year = int( birth_year )
+    except ValueError:
+        raise RuntimeError( "Month, day, and/or year not represented numerically." )
 
     print( "\nYour birthday is " + months[b_month] + " " + str(b_day) + ", " + \
             str(b_year) + "." )
